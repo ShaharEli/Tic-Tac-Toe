@@ -1,0 +1,31 @@
+#board{
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+}
+.cell{
+  background-color: bisque;
+  border: black 2px solid;
+  text-align:center;
+  display: flex;
+  font-size: 100px;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+#game{
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cell:hover{
+  background-color: green;
+}
+.checked{
+  background-color: bisque;
+  border: black 2px solid;
+}
+.checked :hover{
+  background-color: red;
+
+}

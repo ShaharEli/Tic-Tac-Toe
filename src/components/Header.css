@@ -1,0 +1,13 @@
+header{
+    position: relative;
+    top:0;
+    background-color: black;
+    height: 20vh;
+    display: flex;
+    margin-top:0;
+    justify-content: space-around;
+    align-items: center;
+}
+h2{
+    color:white
+}
