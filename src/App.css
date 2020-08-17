@@ -1,4 +1,5 @@
 #board{
+  
   display: grid;
   grid-template-columns: 100px 100px 100px;
   grid-template-rows: 100px 100px 100px;
@@ -10,11 +11,12 @@
   
 }
 #game{
+  padding-left: 10%;
   background-color: honeydew;
   height: 80vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .cell:hover{
   background-color: green;
@@ -30,4 +32,12 @@
 }
 .checked:hover{
   background-color: red;
+}
+button{
+  border-radius: 8%;
+  background-color:bisque ;
+}
+button:hover{
+  background-color: yellow;
+
 }

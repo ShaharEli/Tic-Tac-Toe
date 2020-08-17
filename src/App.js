@@ -58,15 +58,7 @@ function App() {
       setBoard((prev)=>prev.concat([arr]))
 
       console.log(board);
-      if(checkWinner()){
-          alert(currentPlayer+" won")
-          endGame()
-
-      }
-      else if(count===8){
-          alert("It's a tie")
-          endGame()
-      }
+      
       setCount(count+1)
 
       setCurrentPlayer((prev)=>prev==="x"?"o":"x")
@@ -82,47 +74,75 @@ function App() {
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    
     }}} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
-    }}} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
+      endGame()}
+      else if(count===9){
+        alert("It's a tie")
+        endGame()
+    }
+    }} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
-    }}} id={2} onClick={(e)=>handleGame(e)} className={board[count][2].length>0?"checked":"cell"}>{board[count][2]}</div>
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    }
+    }} id={2} onClick={(e)=>handleGame(e)} className={board[count][2].length>0?"checked":"cell"}>{board[count][2]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
-    }}} id={3} onClick={(e)=>handleGame(e)} className={board[count][3].length>0?"checked":"cell"}>{board[count][3]}</div>
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    }
+    }} id={3} onClick={(e)=>handleGame(e)} className={board[count][3].length>0?"checked":"cell"}>{board[count][3]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
-    }}} id={4} onClick={(e)=>handleGame(e)} className={board[count][4].length>0?"checked":"cell"}>{board[count][4]}</div>
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    }
+    }} id={4} onClick={(e)=>handleGame(e)} className={board[count][4].length>0?"checked":"cell"}>{board[count][4]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
-    }}} id={5} onClick={(e)=>handleGame(e)} className={board[count][5].length>0?"checked":"cell"}>{board[count][5]}</div>
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    }
+    }} id={5} onClick={(e)=>handleGame(e)} className={board[count][5].length>0?"checked":"cell"}>{board[count][5]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    
     }}} id={6} onClick={(e)=>handleGame(e)} className={board[count][6].length>0?"checked":"cell"}>{board[count][6]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    
     }}} id={7} onClick={(e)=>handleGame(e)} className={board[count][7].length>0?"checked":"cell"}>{board[count][7]}</div>
       <div onMouseOut={()=>{
       if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    
     }}} id={8} onClick={(e)=>handleGame(e)} className={board[count][8].length>0?"checked":"cell"}>{board[count][8]}</div>
     </div>
     <ol>
