@@ -5,7 +5,14 @@ import Header from './components/Header';
 function App() {
   const [currentPlayer,setCurrentPlayer] =useState("x")
   const [board,setBoard] = useState([Array(9).fill("")])
-    
+  const check = ()=>{
+    if(checkWinner()){
+      alert(currentPlayer==="x"?"o won":"x won")
+      endGame()}else if(count===9){
+        alert("It's a tie")
+        endGame()
+    }
+  }
   const endGame = ()=>{
     try{
       setCurrentPlayer("x")
@@ -71,79 +78,15 @@ function App() {
     <Header turn={currentPlayer}/>
     <div id="game">
     <div id="board" >
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    
-    }}} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}
-      else if(count===9){
-        alert("It's a tie")
-        endGame()
-    }
-    }} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    }
-    }} id={2} onClick={(e)=>handleGame(e)} className={board[count][2].length>0?"checked":"cell"}>{board[count][2]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    }
-    }} id={3} onClick={(e)=>handleGame(e)} className={board[count][3].length>0?"checked":"cell"}>{board[count][3]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    }
-    }} id={4} onClick={(e)=>handleGame(e)} className={board[count][4].length>0?"checked":"cell"}>{board[count][4]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    }
-    }} id={5} onClick={(e)=>handleGame(e)} className={board[count][5].length>0?"checked":"cell"}>{board[count][5]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    
-    }}} id={6} onClick={(e)=>handleGame(e)} className={board[count][6].length>0?"checked":"cell"}>{board[count][6]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    
-    }}} id={7} onClick={(e)=>handleGame(e)} className={board[count][7].length>0?"checked":"cell"}>{board[count][7]}</div>
-      <div onMouseOut={()=>{
-      if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
-        alert("It's a tie")
-        endGame()
-    
-    }}} id={8} onClick={(e)=>handleGame(e)} className={board[count][8].length>0?"checked":"cell"}>{board[count][8]}</div>
+      <div onMouseOut={check} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
+      <div onMouseOut={check} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
+      <div onMouseOut={check} id={2} onClick={(e)=>handleGame(e)} className={board[count][2].length>0?"checked":"cell"}>{board[count][2]}</div>
+      <div onMouseOut={check} id={3} onClick={(e)=>handleGame(e)} className={board[count][3].length>0?"checked":"cell"}>{board[count][3]}</div>
+      <div onMouseOut={check} id={4} onClick={(e)=>handleGame(e)} className={board[count][4].length>0?"checked":"cell"}>{board[count][4]}</div>
+      <div onMouseOut={check} id={5} onClick={(e)=>handleGame(e)} className={board[count][5].length>0?"checked":"cell"}>{board[count][5]}</div>
+      <div onMouseOut={check} id={6} onClick={(e)=>handleGame(e)} className={board[count][6].length>0?"checked":"cell"}>{board[count][6]}</div>
+      <div onMouseOut={check} id={7} onClick={(e)=>handleGame(e)} className={board[count][7].length>0?"checked":"cell"}>{board[count][7]}</div>
+      <div onMouseOut={check} id={8} onClick={(e)=>handleGame(e)} className={board[count][8].length>0?"checked":"cell"}>{board[count][8]}</div>
     </div>
     <ol>
     {
