@@ -11,6 +11,7 @@
   
 }
 #game{
+  opacity: 0.7;
   padding-top: 5%;
   padding-right:5% ;
   height: 80vh;
@@ -41,7 +42,7 @@ button:hover{
 
 }
 .scores{
- padding-left: 5%;
+  padding-left: 1%;
   padding-top: 5%;
   float: left;
   display: flex;
@@ -49,6 +50,8 @@ button:hover{
   width: 40vw;
 }
 .column{
+  opacity: 0.7;
+  background-color: honeydew;
   text-align: center;
   border:solid black 1px;
   width: 50%;
