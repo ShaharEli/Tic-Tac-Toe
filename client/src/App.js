@@ -91,12 +91,12 @@ function App() {
     <Header turn={currentPlayer}/>
     {show&&<Pop show={show} time={checker} done={done} />}
     <div className="scores">
-          <div className="column" >
+          <div className="column"  >
           <h2>Winner</h2>
             <ul>
                 {
                   record.map((item,index)=>{
-                  return <li key={index}>{index+1}. {item.name}</li>
+                  return <li className="list" key={index}>{index+1}. {item.name}</li>
                   })
                 }
             </ul>
@@ -111,12 +111,12 @@ function App() {
                 }
             </ul>
           </div>
-          <div className="column">
+          <div className="column" >
             <h2>Duration</h2>
             <ul>
             {
                   record.map((item,index)=>{
-                    return <li key={index}>{index+1}. {item.time}</li>
+                    return <li className="list" key={index}>{index+1}. {item.time}</li>
                   })
                 }
             </ul>
