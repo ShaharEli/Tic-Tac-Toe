@@ -34,15 +34,15 @@ function Pop(props) {
     const handleChange =(e)=>{
         setWinner(e.target.value)
     }
-    const send =  ()=>{
+    const send = async ()=>{
         if(winner.length>0){
           let today = new Date()
-          axios.post("/api/v1/records",{
+          await axios.post("/api/v1/records",{
             "name":winner,
             "date":today
-          }).then(re=>console.log(re.data))
-           handleClose()
-           props.done()
+          })
+           await handleClose()
+           await props.done()
         }
         else{
             alert("enter valid name")

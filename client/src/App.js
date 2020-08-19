@@ -11,7 +11,6 @@ function App() {
   
     const check = ()=>{
     if(checkWinner()){
-      alert(currentPlayer==="x"?"o won":"x won")
       setShow(true)
       endGame()}
       else if(count===9){
@@ -19,12 +18,10 @@ function App() {
         endGame()
     }
   }
-  const done = ()=>{
+  const  done = async ()=>{
     setShow(false)
-    axios.get("/api/v1/records")
-    .then(e=>{
-      console.log(e.data);
-      setRecord(e.data)})
+    const res =await axios.get("/api/v1/records")
+    setRecord(res.data)
   }
   const endGame = ()=>{
     try{
@@ -86,8 +83,7 @@ function App() {
     <>
     <Header turn={currentPlayer}/>
     {show&&<Pop show={show} done={done} />}
-    <div id="game">  
-      <div className="scores">
+    <div className="scores">
           <div className="column" >
           <h2>winner</h2>
             <ul>
@@ -99,7 +95,7 @@ function App() {
             </ul>
           </div>
           <div className="column">
-            <h2>time</h2>
+            <h2>date</h2>
             <ul>
             {
                   record.map((item,index)=>{
@@ -110,6 +106,8 @@ function App() {
 
           </div>
     </div>
+    <div id="game">  
+      
     <div id="board" >
       <div onMouseOut={check} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
       <div onMouseOut={check} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>

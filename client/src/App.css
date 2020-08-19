@@ -5,18 +5,17 @@
   grid-template-rows: 100px 100px 100px;
 }
 .cell{
-  background-color: bisque;
+  background-color: honeydew;
   border: black 2px solid;
   text-align:center;
   
 }
 #game{
-  padding-left: 10%;
-  background-color: honeydew;
+  padding-top: 5%;
+  padding-right:5% ;
   height: 80vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 .cell:hover{
   background-color: green;
@@ -42,9 +41,12 @@ button:hover{
 
 }
 .scores{
+ 
+  padding-top: 5%;
+  float: left;
   display: flex;
   padding-right: 20px;
-  width: 20vw;
+  width: 40vw;
 }
 .column{
   text-align: center;
@@ -54,4 +56,7 @@ button:hover{
 }
 .column>h2{
   color:red
+}
+ul{
+  list-style: none;
 }
