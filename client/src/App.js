@@ -136,7 +136,7 @@ function App() {
       <div onMouseOut={check} id={7} onClick={(e)=>handleGame(e)} className={board[count][7].length>0?"checked":"cell"}>{board[count][7]}</div>
       <div onMouseOut={check} id={8} onClick={(e)=>handleGame(e)} className={board[count][8].length>0?"checked":"cell"}>{board[count][8]}</div>
     </div>
-    <ol>
+    <ol id="history">
     {
                 board.map((k,i)=>{
                 return  <li key={i}><button onClick={()=>{

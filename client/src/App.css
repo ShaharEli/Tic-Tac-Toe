@@ -5,6 +5,7 @@
   grid-template-rows: 100px 100px 100px;
 }
 .cell{
+  cursor: pointer;
   background-color: honeydew;
   border: black 2px solid;
   text-align:center;
@@ -22,6 +23,7 @@
   background-color: green;
 }
 .checked{
+  cursor: not-allowed;
   background-color: honeydew;
   border: black 2px solid;
   display: flex;
@@ -71,4 +73,23 @@ li{
 .list{
   padding-bottom: 36px;
 
+}
+
+@media screen and (max-width: 725px){
+  .scores{
+    width: 88vw;
+    bottom: 0;
+    position: absolute;
+  }
+  #board{
+    padding-left: 5px;
+  }
+  #game{
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: 150vh;
+
+
+  }
 }
