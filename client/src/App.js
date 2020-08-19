@@ -62,12 +62,8 @@ function App() {
       board.splice(count+1,board.length-count)
       let arr = board[count].slice()
       arr[Number(e.target.id)]=currentPlayer
-      setBoard((prev)=>prev.concat([arr]))
-
-      console.log(board);
-      
+      setBoard((prev)=>prev.concat([arr]))      
       setCount(count+1)
-
       setCurrentPlayer((prev)=>prev==="x"?"o":"x")
 
   
