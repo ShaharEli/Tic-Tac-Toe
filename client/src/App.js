@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Pop from './components/Modal';
-
+import axios from "axios"
 function App() {
   const [show,setShow]=useState(false)
   const [currentPlayer,setCurrentPlayer] =useState("x")
   const [board,setBoard] = useState([Array(9).fill("")])
-  const check = ()=>{
+  const [record,setRecord] = useState([])
+  
+    const check = ()=>{
     if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
       setShow(true)
@@ -19,6 +21,10 @@ function App() {
   }
   const done = ()=>{
     setShow(false)
+    axios.get("/api/v1/records")
+    .then(e=>{
+      console.log(e.data);
+      setRecord(e.data)})
   }
   const endGame = ()=>{
     try{
@@ -80,10 +86,30 @@ function App() {
     <>
     <Header turn={currentPlayer}/>
     {show&&<Pop show={show} done={done} />}
-    <div id="game">
-      <div id="scores">
+    <div id="game">  
+      <div className="scores">
+          <div className="column" >
+          <h2>winner</h2>
+            <ul>
+                {
+                  record.map((item,index)=>{
+                  return <li key={index}>{index+1}. {item.name}</li>
+                  })
+                }
+            </ul>
+          </div>
+          <div className="column">
+            <h2>time</h2>
+            <ul>
+            {
+                  record.map((item,index)=>{
+                    return <li key={index}>{index+1}. {item.date}</li>
+                  })
+                }
+            </ul>
 
-      </div>
+          </div>
+    </div>
     <div id="board" >
       <div onMouseOut={check} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
       <div onMouseOut={check} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>

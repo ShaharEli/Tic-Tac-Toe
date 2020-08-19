@@ -37,7 +37,10 @@ function Pop(props) {
     const send =  ()=>{
         if(winner.length>0){
           let today = new Date()
-          console.log(today);
+          axios.post("/api/v1/records",{
+            "name":winner,
+            "date":today
+          }).then(re=>console.log(re.data))
            handleClose()
            props.done()
         }

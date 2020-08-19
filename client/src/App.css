@@ -41,3 +41,17 @@ button:hover{
   background-color: yellow;
 
 }
+.scores{
+  display: flex;
+  padding-right: 20px;
+  width: 20vw;
+}
+.column{
+  text-align: center;
+  border:solid black 1px;
+  width: 50%;
+
+}
+.column>h2{
+  color:red
+}
