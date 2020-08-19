@@ -55,10 +55,10 @@ function Pop(props) {
     }
     const send = async ()=>{
         if(winner.length>0){
-          
-          await axios.post("/api/v1/records",{
+          await axios.post("/api/v1/record",{
             "name":winner,
-            "date":myFunction()
+            "date":myFunction(),
+            "time":props.time+" seconds"
           })
            await handleClose()
            await props.done()

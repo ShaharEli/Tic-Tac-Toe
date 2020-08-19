@@ -7,7 +7,7 @@ app.get("/api/v1/records",async (req,res)=>{
     const data1 =JSON.parse(data)
     res.send(data1)
 })
-app.post("/api/v1/records", async (req,res)=>{
+app.post("/api/v1/record", async (req,res)=>{
     try{
     const data =  await fs.readFile("./records.json")
     let data1 =JSON.parse(data)

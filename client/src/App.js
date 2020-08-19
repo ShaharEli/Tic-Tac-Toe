@@ -8,9 +8,11 @@ function App() {
   const [currentPlayer,setCurrentPlayer] =useState("x")
   const [board,setBoard] = useState([Array(9).fill("")])
   const [record,setRecord] = useState([])
-  
-    const check = ()=>{
+  const [time,setTime]=useState(Math.round(new Date().getTime() / 1000))
+  const [checker,setChecker]=useState(0)
+  const check = ()=>{
     if(checkWinner()){
+      setChecker(prev=>(Math.round(new Date().getTime() / 1000)-time))
       setShow(true)
       endGame()}
       else if(count===9){
@@ -18,6 +20,10 @@ function App() {
         endGame()
     }
   }
+  useEffect(async ()=>{
+    const res =await axios.get("/api/v1/records")
+    setRecord(res.data)
+  },[])
   const  done = async ()=>{
     setShow(false)
     const res =await axios.get("/api/v1/records")
@@ -28,6 +34,7 @@ function App() {
       setCurrentPlayer("x")
       setCount(0)
       setBoard([Array(9).fill("")])
+      setTime(Math.round(new Date().getTime() / 1000))
       }catch(e){}
   }
   const [count,setCount] =useState(0)
@@ -82,10 +89,10 @@ function App() {
   return (
     <>
     <Header turn={currentPlayer}/>
-    {show&&<Pop show={show} done={done} />}
+    {show&&<Pop show={show} time={checker} done={done} />}
     <div className="scores">
           <div className="column" >
-          <h2>winner</h2>
+          <h2>Winner</h2>
             <ul>
                 {
                   record.map((item,index)=>{
@@ -95,11 +102,21 @@ function App() {
             </ul>
           </div>
           <div className="column">
-            <h2>date</h2>
+            <h2>Date</h2>
             <ul>
             {
                   record.map((item,index)=>{
                     return <li key={index}>{index+1}. {item.date}</li>
+                  })
+                }
+            </ul>
+          </div>
+          <div className="column">
+            <h2>Duration</h2>
+            <ul>
+            {
+                  record.map((item,index)=>{
+                    return <li key={index}>{index+1}. {item.time}</li>
                   })
                 }
             </ul>

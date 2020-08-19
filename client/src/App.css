@@ -41,7 +41,7 @@ button:hover{
 
 }
 .scores{
- 
+ padding-left: 5%;
   padding-top: 5%;
   float: left;
   display: flex;
@@ -56,7 +56,9 @@ button:hover{
 }
 .column>h2{
   color:red
+  
 }
 ul{
   list-style: none;
+  text-align: left;
 }
