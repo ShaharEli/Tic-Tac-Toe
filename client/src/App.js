@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Pop from './components/Modal';
 
 function App() {
+  const [show,setShow]=useState(false)
   const [currentPlayer,setCurrentPlayer] =useState("x")
   const [board,setBoard] = useState([Array(9).fill("")])
   const check = ()=>{
     if(checkWinner()){
       alert(currentPlayer==="x"?"o won":"x won")
-      endGame()}else if(count===9){
+      setShow(true)
+      endGame()}
+      else if(count===9){
         alert("It's a tie")
         endGame()
     }
+  }
+  const done = ()=>{
+    setShow(false)
   }
   const endGame = ()=>{
     try{
@@ -72,7 +79,11 @@ function App() {
   return (
     <>
     <Header turn={currentPlayer}/>
+    {show&&<Pop show={show} done={done} />}
     <div id="game">
+      <div id="scores">
+
+      </div>
     <div id="board" >
       <div onMouseOut={check} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
       <div onMouseOut={check} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
