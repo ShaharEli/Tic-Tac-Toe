@@ -5,7 +5,26 @@ import {TextField} from '@material-ui/core'
 import {Button} from '@material-ui/core'
 import "./Modal.css" 
 import axios from "axios"
-
+//function to add zeros to the date if needed
+function addZero(i) {
+  if (i < 10) {
+      i = "0" + i;
+  }
+  return i;
+}
+//function to generate the current date
+function myFunction() {
+  let d = new Date();
+  let m = addZero(d.getMinutes());
+  let h = addZero(d.getHours());
+  let s = addZero(d.getSeconds());
+  let today = d
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  let yyyy = today.getFullYear();
+  today = mm + '-' + dd + '-' + yyyy;
+  return today+"  "+h + ":" + m + ":"+s ;
+}
   
   function getModalStyle() {
     return {
@@ -36,10 +55,10 @@ function Pop(props) {
     }
     const send = async ()=>{
         if(winner.length>0){
-          let today = new Date()
+          
           await axios.post("/api/v1/records",{
             "name":winner,
-            "date":today
+            "date":myFunction()
           })
            await handleClose()
            await props.done()

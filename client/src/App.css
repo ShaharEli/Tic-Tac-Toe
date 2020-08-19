@@ -21,7 +21,7 @@
   background-color: green;
 }
 .checked{
-  background-color: bisque;
+  background-color: honeydew;
   border: black 2px solid;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
 }
 button{
   border-radius: 8%;
-  background-color:bisque ;
+  background-color: honeydew;
 }
 button:hover{
   background-color: yellow;
