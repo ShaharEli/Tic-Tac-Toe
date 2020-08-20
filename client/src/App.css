@@ -77,7 +77,8 @@ li{
 
 @media screen and (max-width: 725px){
   .scores{
-    width: 88vw;
+    padding-left: 5%;
+    width: 90vw;
     bottom: 0;
     position: absolute;
   }
@@ -85,10 +86,11 @@ li{
     padding-left: 5px;
   }
   #game{
+    padding-left: 5%;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    height: 150vh;
+    height: 100vh;
   }
   
 }
