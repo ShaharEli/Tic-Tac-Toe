@@ -81,6 +81,8 @@ function Pop(props) {
         <div id="post" >
       <Modal 
         open={open}
+        onClose={async()=>{await handleClose()
+          await props.done()}}
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
       >
