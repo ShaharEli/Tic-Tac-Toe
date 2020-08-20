@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 app.use(express.json())
+app.use(express.static("../client/build"))
 const fs = require('fs').promises
 app.get("/api/v1/records",async (req,res)=>{
     const data = await fs.readFile("./records.json")
