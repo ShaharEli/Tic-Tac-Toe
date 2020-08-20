@@ -74,6 +74,7 @@ function App() {
     }
     return false
 }
+  useEffect(()=>check(),[count])
   const handleGame = (e)=>{
     if (e.target.innerText.length<1){
       board.splice(count+1,board.length-count)
@@ -82,9 +83,7 @@ function App() {
       setBoard((prev)=>prev.concat([arr]))      
       setCount(count+1)
       setCurrentPlayer((prev)=>prev==="x"?"o":"x")
-
-  
-}
+    }
   }
   return (
     <>
@@ -126,15 +125,15 @@ function App() {
     <div id="game">  
       
     <div id="board" >
-      <div onMouseOut={check} id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
-      <div onMouseOut={check} id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
-      <div onMouseOut={check} id={2} onClick={(e)=>handleGame(e)} className={board[count][2].length>0?"checked":"cell"}>{board[count][2]}</div>
-      <div onMouseOut={check} id={3} onClick={(e)=>handleGame(e)} className={board[count][3].length>0?"checked":"cell"}>{board[count][3]}</div>
-      <div onMouseOut={check} id={4} onClick={(e)=>handleGame(e)} className={board[count][4].length>0?"checked":"cell"}>{board[count][4]}</div>
-      <div onMouseOut={check} id={5} onClick={(e)=>handleGame(e)} className={board[count][5].length>0?"checked":"cell"}>{board[count][5]}</div>
-      <div onMouseOut={check} id={6} onClick={(e)=>handleGame(e)} className={board[count][6].length>0?"checked":"cell"}>{board[count][6]}</div>
-      <div onMouseOut={check} id={7} onClick={(e)=>handleGame(e)} className={board[count][7].length>0?"checked":"cell"}>{board[count][7]}</div>
-      <div onMouseOut={check} id={8} onClick={(e)=>handleGame(e)} className={board[count][8].length>0?"checked":"cell"}>{board[count][8]}</div>
+      <div id={0} onClick={(e)=>handleGame(e)} className={board[count][0].length>0?"checked":"cell"}>{board[count][0]}</div>
+      <div id={1} onClick={(e)=>handleGame(e)} className={board[count][1].length>0?"checked":"cell"}>{board[count][1]}</div>
+      <div id={2} onClick={(e)=>handleGame(e)} className={board[count][2].length>0?"checked":"cell"}>{board[count][2]}</div>
+      <div id={3} onClick={(e)=>handleGame(e)} className={board[count][3].length>0?"checked":"cell"}>{board[count][3]}</div>
+      <div id={4} onClick={(e)=>handleGame(e)} className={board[count][4].length>0?"checked":"cell"}>{board[count][4]}</div>
+      <div id={5} onClick={(e)=>handleGame(e)} className={board[count][5].length>0?"checked":"cell"}>{board[count][5]}</div>
+      <div id={6} onClick={(e)=>handleGame(e)} className={board[count][6].length>0?"checked":"cell"}>{board[count][6]}</div>
+      <div id={7} onClick={(e)=>handleGame(e)} className={board[count][7].length>0?"checked":"cell"}>{board[count][7]}</div>
+      <div id={8} onClick={(e)=>handleGame(e)} className={board[count][8].length>0?"checked":"cell"}>{board[count][8]}</div>
     </div>
     <ol id="history">
     {
