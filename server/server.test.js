@@ -16,6 +16,6 @@ test('server post',async () => {
 test("server get after post",async()=>{
     await  request.get("/api/v1/records")
     .expect([check,check])
-    await fs.writeFile("./records1.json",`${[JSON.stringify(check)]}`)
+    await fs.writeFile("./records1.json",`${JSON.stringify([check])}`)
 
 })
