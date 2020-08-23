@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 
-describe('App Teדt', () => {
+describe('App Test', () => {
     test('correct sign after click', async () => {
       let browser = await puppeteer.launch({
         headless: false
@@ -17,7 +17,6 @@ describe('App Teדt', () => {
       await div1.click()
       const html1 = await page.$eval("[id='1']", e => e.innerText);
       expect(html1).toBe('o');
-  
       browser.close();
     }, 16000);
     test("show winner modal after winning", async () => {
@@ -38,7 +37,6 @@ describe('App Teדt', () => {
         const div2 = await page.$("[id='2']")
         await div2.click()
         await page.waitForSelector("[id='post']", {visible: true});
-        const winner = await page.$("[id='post']")
         await page.screenshot({
             path: "./screenshots.jpg",
             type: "jpeg",
