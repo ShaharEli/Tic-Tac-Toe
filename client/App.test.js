@@ -1,8 +1,7 @@
-const faker = require('faker');
 const puppeteer = require('puppeteer');
 
 
-describe('App Text', () => {
+describe('App Teדt', () => {
     test('correct sign after click', async () => {
       let browser = await puppeteer.launch({
         headless: false
@@ -21,7 +20,7 @@ describe('App Text', () => {
   
       browser.close();
     }, 16000);
-    test('correct sign after click', async () => {
+    test("show winner modal after winning", async () => {
         let browser = await puppeteer.launch({
           headless: false
         });
